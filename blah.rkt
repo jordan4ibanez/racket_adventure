@@ -1,5 +1,8 @@
 #lang racket
 
+(define true #t)
+(define false #f)
+
 ; Little concat function
 (define (concat input)
   (let ([accumulator ""])
@@ -10,3 +13,5 @@
 (print (concat '("test" 1 2 3)))
 
 
+(define (fluff)
+  (print "fluff"))
