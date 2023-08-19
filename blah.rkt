@@ -43,8 +43,10 @@
         (set! index (+ index 1))))
     (reverse accumulator)))
 
+(define (parse-command input-command)
+  (println input-command))
+
 (let ([command-chain (split "this is really cool")])
-  (for ([i command-chain])
-    (println i)))
+  (parse-command (list-ref command-chain 0)))
 
 ; (split "hi there")
