@@ -50,3 +50,11 @@
   (parse-command (list-ref command-chain 0)))
 
 ; (split "hi there")
+
+
+(let ([cool (for/fold ([output empty]) ([work (reverse '(a b c))]) (cons work output))])
+  (println cool))
+
+;; All that song and dance above can simply be deduced to this.
+(let ([string-elements (string-split "hello there I am a string")])
+    (println string-elements))
