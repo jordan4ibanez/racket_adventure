@@ -12,26 +12,36 @@
       (set! accumulator (format "~a~a" accumulator i)))
     accumulator))
 
-; (print (concat '("test" 1 2 3)))
-
-;; Converts chars to string representation.
-(define (stringify inputchar)
-  (format "~a" inputchar))
+;; Converts raw objects to string representation.
+(define (stringify input)
+  (format "~a" input))
 
 ;; Unsafe string comparison.
 (define (unsafe-equal? raw-object-1 raw-object-2)
   (equal? (stringify raw-object-1) (stringify raw-object-2)))
 
+;; Pulls a portion of a string into a new string.
+(define (extract text min max)
+  (substring text min max))
+
+;; Inserts an element into a list.
+(define (insert element list)
+  (set! list (cons element list))
+    list)
+
 ;; Breaks down a string into a list of strings.
 (define (split inputstring)
-  (let ([accumulator empty]
-        [index 0])
+  (let ([accumulator empty] [min 0] [index 0])
     (for ([i (string->list inputstring)])
-      (cond [(unsafe-equal? i " ")
-               (print (format "fuck~%"))]
-            [else (print (stringify i))]
-          ))
-    ))
+      (begin
+        (cond
+          [(unsafe-equal? i " ")
+           (set! accumulator (cons (extract inputstring min index) accumulator))
+           (set! min (+ index 1))]
+          [(or (equal? index (- (string-length inputstring) 1)))
+           (set! accumulator (cons (extract inputstring min (+ index 1)) accumulator))])
+        (set! index (+ index 1))))
+    (reverse accumulator)))
 
+(split "this is really cool")
 (split "hi there")
-(println "")
