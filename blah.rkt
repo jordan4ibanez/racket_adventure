@@ -1,6 +1,6 @@
 #lang racket
 
-(require readline)
+; (require readline)
 
 (define true #t)
 (define false #f)
@@ -43,3 +43,12 @@
 (let ([choices '(yes no probably "I have no idea" maybe "probably not" "I think so" "Why are you asking me??")])
   (let ([result (list-ref choices (random 0 (length choices)))])
     result))
+
+(+ 10 14)
+
+(define (return-multiple)
+  (println "hi")
+  (println "ye")
+  values 1 2 3)
+
+(return-multiple)
