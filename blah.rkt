@@ -24,13 +24,22 @@
 
 ;; Breaks down a string into a list of strings.
 (define (split inputstring)
-  (let ([accumulator empty])
+  (let ([accumulator empty]
+        [index 0])
     (for ([i (string->list inputstring)])
-      (when (unsafe-equal? i " ")
-          (print (format "fuck~%")))
-      (print (stringify i))
-    )))
+      (cond [(unsafe-equal? i " ")
+               (print (format "fuck~%"))]
+            [else (print (stringify i))]
+          ))
+    ))
 
 (split "hi there")
+(println "")
+
+(define string-args "Create a moonlander out of cheese")
 
 
+(random-seed (modulo (exact-round (+ (string-length string-args) (current-inexact-milliseconds))) 2147483647))
+(let ([choices '(yes no probably "I have no idea" maybe "probably not" "I think so" "Why are you asking me??")])
+  (let ([result (list-ref choices (random 0 (length choices)))])
+    result))
