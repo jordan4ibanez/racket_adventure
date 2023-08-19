@@ -43,5 +43,8 @@
         (set! index (+ index 1))))
     (reverse accumulator)))
 
-(split "this is really cool")
-(split "hi there")
+(let ([command-chain (split "this is really cool")])
+  (for ([i command-chain])
+    (println i)))
+
+; (split "hi there")
