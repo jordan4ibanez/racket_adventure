@@ -1,0 +1,17 @@
+{
+  "taskName": "Run blah",
+  "command": "racket",
+  "args": [
+      "-t",
+      "blah.rkt",
+  ],
+  "options": {
+      "cwd": "${workspaceRoot}"
+  },
+  "type": "shell",
+  "group": {
+      "kind": "build",
+      "isDefault": true
+  },
+  "tasks": []
+}
